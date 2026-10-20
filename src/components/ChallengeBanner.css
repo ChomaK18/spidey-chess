@@ -1,0 +1,80 @@
+.challenge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 19px;
+  padding: 12px 17px;
+  overflow: hidden;
+  border: 2px solid #192b48;
+  border-radius: 20px;
+  background: #fff5d3;
+}
+
+.piece-token {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 2px solid #192b48;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 3px 0 #192b48;
+}
+
+.piece-token img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 0 #192b48);
+}
+
+.challenge-copy {
+  min-width: 0;
+}
+
+.challenge-copy h2 {
+  margin: 0;
+  color: #192b48;
+  font-size: clamp(25px, 6vw, 34px);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.challenge-copy p {
+  margin: 4px 0 0;
+  color: #53637e;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.spidey-hero {
+  width: 78px;
+  height: 82px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 420px) {
+  .challenge {
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  .piece-token {
+    width: 58px;
+    height: 58px;
+  }
+
+  .challenge-copy p {
+    font-size: 13px;
+  }
+
+  .spidey-hero {
+    width: 58px;
+    height: 62px;
+  }
+}
