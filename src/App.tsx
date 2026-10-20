@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { ChallengeBanner } from './components/ChallengeBanner'
 import { ChessBoard } from './components/ChessBoard'
 import { GameFeedback } from './components/GameFeedback'
-import { GameFooter } from './components/GameFooter'
 import { GameHeader } from './components/GameHeader'
 import { MoveLegend } from './components/MoveLegend'
 import { createChallenge } from './game/challenges'
@@ -85,7 +84,6 @@ function App() {
         </button>
       </section>
 
-      <GameFooter />
     </main>
   )
 }
