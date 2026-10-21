@@ -16,6 +16,7 @@ function App() {
   const [score, setScore] = useState(0)
   const [message, setMessage] = useState(initialMessage)
   const [isCorrect, setIsCorrect] = useState(false)
+  const [showSolutionMoves, setShowSolutionMoves] = useState(false)
   const [selectedSquare, setSelectedSquare] = useState<Position | null>(null)
   const [moveResult, setMoveResult] = useState<MoveResult | null>(null)
 
@@ -38,6 +39,9 @@ function App() {
     if (result === 'capture' && enemy) {
       setMessage(`Super! ${enemy.name} nie ma szans! 🕸️`)
       setIsCorrect(true)
+      setShowSolutionMoves(
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      )
       setScore((currentScore) => currentScore + 1)
     } else if (result === 'move') {
       setMessage('Tak! Figura może tu się ruszyć, ale nikogo nie zbija! 🟡')
@@ -50,6 +54,7 @@ function App() {
     setChallenge(createChallenge())
     setMessage(initialMessage)
     setIsCorrect(false)
+    setShowSolutionMoves(false)
     setSelectedSquare(null)
     setMoveResult(null)
   }
@@ -69,14 +74,16 @@ function App() {
       <section className="game-card" aria-label="Gra w szachy">
         <ChallengeBanner piece={challenge.piece} />
         <p className="board-instruction">Dotknij złoczyńcy lub pustego pola!</p>
-        <MoveLegend showPossibleMoves={isCorrect} />
+        <MoveLegend showPossibleMoves={showSolutionMoves} />
         <ChessBoard
           challenge={challenge}
           isCorrect={isCorrect}
+          showSolutionMoves={showSolutionMoves}
           selectedSquare={selectedSquare}
           solutionMoves={solutionMoves}
           moveResult={moveResult}
           onChooseSquare={chooseSquare}
+          onCaptureAnimationEnd={() => setShowSolutionMoves(true)}
         />
         <GameFeedback message={message} isCorrect={isCorrect} />
         <button className="next-button" onClick={nextChallenge}>

@@ -149,6 +149,10 @@
   cursor: pointer;
 }
 
+.enemy-square.capture {
+  z-index: 3;
+}
+
 .enemy-square:not(:disabled):hover,
 .enemy-square:not(:disabled):focus-visible {
   z-index: 1;
@@ -171,8 +175,55 @@
   filter: drop-shadow(0 2px 0 #192b48);
 }
 
-.enemy-image.electro-image {
+.enemy-image-frame {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.enemy-image-frame img {
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 0 #192b48);
+}
+
+.enemy-image-frame.electro-image-frame img {
   transform: translateY(-10%);
+}
+
+.enemy-square.capture .enemy-image-frame {
+  animation: capture-celebration 700ms ease-in-out both;
+}
+
+@keyframes capture-celebration {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+
+  22% {
+    transform: scale(1.25) rotate(-8deg);
+  }
+
+  44% {
+    transform: scale(1.25) rotate(8deg);
+  }
+
+  62% {
+    transform: scale(1.25) rotate(-5deg);
+  }
+
+  82% {
+    transform: scale(0.96) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enemy-square.capture .enemy-image-frame {
+    animation: none;
+  }
 }
 
 .board-player {

@@ -5,19 +5,23 @@ import './ChessBoard.css'
 type ChessBoardProps = {
   challenge: Challenge
   isCorrect: boolean
+  showSolutionMoves: boolean
   selectedSquare: Position | null
   solutionMoves: Position[]
   moveResult: 'move' | 'capture' | 'invalid' | null
   onChooseSquare: (position: Position) => void
+  onCaptureAnimationEnd: () => void
 }
 
 export function ChessBoard({
   challenge,
   isCorrect,
+  showSolutionMoves,
   selectedSquare,
   solutionMoves,
   moveResult,
   onChooseSquare,
+  onCaptureAnimationEnd,
 }: ChessBoardProps) {
   return (
     <div className="board-frame">
@@ -37,7 +41,8 @@ export function ChessBoard({
             const squareLabel = `Rząd ${BOARD_SIZE - position.row}, kolumna ${position.col + 1}`
             const isSelected = selectedSquare !== null && samePosition(selectedSquare, position)
             const feedbackClass = isSelected ? ` ${moveResult}` : ''
-            const solutionClass = solutionMoves.some((move) => samePosition(move, position))
+            const solutionClass = showSolutionMoves &&
+              solutionMoves.some((move) => samePosition(move, position))
               ? ' solution-move'
               : ''
 
@@ -51,11 +56,12 @@ export function ChessBoard({
                   aria-label={`${enemy.name}, ${squareLabel}${isSelected ? `, ${moveResult}` : ''}`}
                   aria-pressed={isSelected}
                 >
-                  <img
-                    className={`enemy-image${enemy.name === 'Electro' ? ' electro-image' : ''}`}
-                    src={enemy.image}
-                    alt=""
-                  />
+                  <span
+                    className={`enemy-image-frame${enemy.name === 'Electro' ? ' electro-image-frame' : ''}`}
+                    onAnimationEnd={onCaptureAnimationEnd}
+                  >
+                    <img className="enemy-image" src={enemy.image} alt="" />
+                  </span>
                 </button>
               )
             }
