@@ -171,6 +171,10 @@
   filter: drop-shadow(0 2px 0 #192b48);
 }
 
+.enemy-image.electro-image {
+  transform: translateY(-10%);
+}
+
 .board-player {
   position: relative;
   width: 100%;

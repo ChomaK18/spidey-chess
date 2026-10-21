@@ -2,6 +2,8 @@ import { pieces, villains } from './pieces'
 import { getBoardPositions, getMoves, samePosition } from './movement'
 import type { Challenge, Enemy } from './types'
 
+const ENEMIES_PER_CHALLENGE = 4
+
 function randomItem<T>(items: T[]): T {
   return items[Math.floor(Math.random() * items.length)]
 }
@@ -21,7 +23,7 @@ export function createChallenge(): Challenge {
     const position = randomItem(playerPositions)
     const enemyPositions = shuffled(
       positions.filter((candidate) => !samePosition(candidate, position)),
-    ).slice(0, 3)
+    ).slice(0, ENEMIES_PER_CHALLENGE)
     const moves = getMoves(piece, position, enemyPositions)
     const correctAnswers = enemyPositions.filter((enemy) =>
       moves.some((move) => samePosition(move, enemy)),
@@ -43,8 +45,9 @@ export function createChallenge(): Challenge {
   const position = { row: 2, col: 2 }
   const enemies: Enemy[] = [
     { ...villains[0], position: { row: 1, col: 1 } },
-    { ...villains[1], position: { row: 0, col: 5 } },
-    { ...villains[2], position: { row: 5, col: 5 } },
+    { ...villains[1], position: { row: 1, col: 3 } },
+    { ...villains[2], position: { row: 3, col: 1 } },
+    { ...villains[3], position: { row: 0, col: 5 } },
   ]
   return { piece: pieces[5], position, enemies }
 }

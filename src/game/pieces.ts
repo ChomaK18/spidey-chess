@@ -1,6 +1,9 @@
 import docOckImage from '../assets/villains/Doc ock.png'
+import electroImage from '../assets/villains/Electro.png'
 import greenGoblinImage from '../assets/villains/Green Goblin.png'
+import hallowsEveImage from '../assets/villains/Hallows eve.png'
 import rhinoImage from '../assets/villains/Rihno.png'
+import arnimZolaImage from '../assets/villains/arnim zola.png'
 import blackBishopImage from '../assets/chess pieces/black/bishop_b.png'
 import blackKingImage from '../assets/chess pieces/black/king_b.png'
 import blackKnightImage from '../assets/chess pieces/black/knight_b.png'
@@ -28,4 +31,7 @@ export const villains: Villain[] = [
   { name: 'Doktor Ośmiornica', image: docOckImage },
   { name: 'Zielony Goblin', image: greenGoblinImage },
   { name: 'Rhino', image: rhinoImage },
+  { name: 'Electro', image: electroImage },
+  { name: 'Hallows Eve', image: hallowsEveImage },
+  { name: 'Arnim Zola', image: arnimZolaImage },
 ]

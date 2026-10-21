@@ -51,7 +51,11 @@ export function ChessBoard({
                   aria-label={`${enemy.name}, ${squareLabel}${isSelected ? `, ${moveResult}` : ''}`}
                   aria-pressed={isSelected}
                 >
-                  <img className="enemy-image" src={enemy.image} alt="" />
+                  <img
+                    className={`enemy-image${enemy.name === 'Electro' ? ' electro-image' : ''}`}
+                    src={enemy.image}
+                    alt=""
+                  />
                 </button>
               )
             }

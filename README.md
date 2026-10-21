@@ -1,6 +1,6 @@
 # Szachowi bohaterowie
 
-Prosta gra do nauki ruchów figur szachowych, zbudowana w React, TypeScript i Vite. Na planszy 6×6 Spidey staje do pojedynku z trzema przeciwnikami — zadaniem gracza jest wybrać tego, do którego może ruszyć jego figura. Pola planszy mają co najmniej 44 px, aby wygodnie można było ich dotykać na telefonie.
+Prosta gra do nauki ruchów figur szachowych, zbudowana w React, TypeScript i Vite. Na planszy 6×6 Spidey staje do pojedynku z czterema przeciwnikami — zadaniem gracza jest wybrać tego, do którego może ruszyć jego figura. Pola planszy mają co najmniej 44 px, aby wygodnie można było ich dotykać na telefonie.
 
 ## Uruchomienie lokalne
 

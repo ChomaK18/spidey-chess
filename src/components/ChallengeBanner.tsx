@@ -1,4 +1,4 @@
-import spideyImage from '../assets/Spidey_Transparent.png'
+import spideyFriendsImage from '../assets/Spidey Friends.png'
 import type { Piece } from '../game/types'
 import './ChallengeBanner.css'
 
@@ -15,7 +15,7 @@ export function ChallengeBanner({ piece }: ChallengeBannerProps) {
         <h2>{piece.name}!</h2>
         <p>Kogo może złapać?</p>
       </div>
-      <img className="spidey-hero" src={spideyImage} alt="Spidey" />
+      <img className="spidey-hero" src={spideyFriendsImage} alt="Spidey i przyjaciele" />
     </div>
   )
 }
