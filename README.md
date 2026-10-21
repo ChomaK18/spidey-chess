@@ -19,6 +19,12 @@ Projekt zawiera workflow GitHub Actions, który buduje i publikuje stronę po wy
 
 Jeśli repozytorium ma inną nazwę, zmień ścieżkę `base` w `vite.config.ts`, tak aby odpowiadała nazwie repozytorium.
 
+## Instalacja na iPhonie i tryb offline
+
+1. Otwórz opublikowaną stronę w Safari, gdy iPhone ma połączenie z internetem, i poczekaj, aż aplikacja oraz jej grafiki się załadują. Aplikacja zapisze potrzebne pliki do użycia offline.
+2. W Safari wybierz **Udostępnij → Dodaj do ekranu początkowego**.
+3. Uruchamiaj grę z dodanej ikony. Po pierwszym załadowaniu będzie działać także bez połączenia z internetem.
+
 ## Budowanie
 
 ```sh
